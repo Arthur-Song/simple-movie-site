@@ -1,0 +1,20 @@
+// Created by Arthur on 2016/7/5.
+extends ../../layout
+
+block content
+   .container
+      .row
+         .col-md-6
+            form(method="post",action="/user/register").form-horizontal
+               .form-group
+                  label(for="registerUsername").col-md-2.control-label 用户名
+                  .col-md-10
+                     input(type="text",name="username")#registerUsername.form-control
+               .form-group
+                  label(for="registerPassword").col-md-2.control-label 密码
+                  .col-md-10
+                     input(type="password",name="password")#registerPassword.form-control
+               .form-group
+                  .col-md-offset-2.col-md-10
+                     button(type="submit").btn.btn-primary 注册
+                     a(href="/").btn.btn-warning 取消

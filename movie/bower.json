@@ -1,0 +1,21 @@
+{
+  "name": "movie",
+  "description": "a movie network demo",
+  "main": "",
+  "authors": [
+    "Arthur Song"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/framework",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

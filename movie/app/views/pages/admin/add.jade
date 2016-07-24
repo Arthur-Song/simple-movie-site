@@ -1,0 +1,61 @@
+//
+   Created by Arthur on 2016/7/3.
+
+extends ../../layout
+block content
+   .container
+      .row
+         form.form-horizontal(method="post",action="/admin/movie/save")
+            input(type="hidden",name="_id",value="#{movie._id}")
+            .form-group
+               label.col-sm-2.control-label(for="title") 电影名称:
+               .col-sm-10
+                  input#title.form-control(type="text",name="title",value="#{typeof movie.title === 'undefined'? '':movie.title}",placeholder="请输入电影的名称...")
+            .form-group
+               label.col-sm-2.control-label(for="director") 导演:
+               .col-sm-10
+                  input#director.form-control(type="text",name="director",value="#{typeof movie.director === 'undefined'? '':movie.director}",placeholder="请输入导演的姓名...")
+            .form-group
+               label.col-sm-2.control-label(for="actors") 主演:
+               .col-sm-10
+                  input#actors.form-control(type="text",name="actors",value="#{typeof movie.actors === 'undefined'? '':movie.actors}",placeholder="请输入主演姓名...")
+            .form-group
+               label.col-sm-2.control-label(for="flash") 电影文件:
+               .col-sm-10
+                  input#flash.form-control(type="text",name="flash",value="#{typeof movie.flash === 'undefined'? '':movie.flash}",placeholder="请输入电影文件的路径...")
+            .form-group
+               label.col-sm-2.control-label(for="poster") 海报:
+               .col-sm-10
+                  input#poster.form-control(type="text",name="poster",value="#{typeof movie.poster === 'undefined'? '':movie.poster}",placeholder="请输入电影海报的路径...")
+            .form-group
+               label.col-sm-2.control-label(for="country") 国家:
+               .col-sm-10
+                  select#country.form-control(name="country",value="#{typeof movie.country ==='undefined'? '':movie.country}",placeholder="请选择国家...")
+                     option(value="1") 中国
+                     option(value="2") 美国
+                     option(value="3") 日本
+                     option(value="4") 韩国
+            .form-group
+               label.col-sm-2.control-label(for="language") 语言:
+               .col-sm-10
+                  select#language.form-control(name="language",value="#{typeof movie.language ==='undefined'? '':movie.language}",placeholder="请选择国家...")
+                     option(value="1") 中文
+                     option(value="2") 英语
+                     option(value="3") 韩语
+                     option(value="4") 日语
+            .form-group
+               label.col-sm-2.control-label(for="tags") 类型:
+               .col-sm-10
+                  input#tags.form-control(type="text",name="tags",value="#{typeof movie.tags==='undefined'? '':movie.tags}",placeholder="请输入电影的名称...")
+            .form-group
+               label.col-sm-2.control-label(for="publishDate") 上映日期:
+               .col-sm-10
+                  input#publishDate.form-control(type="date",name="publishDate",value="#{typeof movie.publishDate==='undefined'? '':movie.publishDate}",placeholder="请输入电影的上映日期...")
+            .form-group
+               label.col-sm-2.control-label(for="summary") 简介:
+               .col-sm-10
+                  textarea#summary.form-control(name="summary",placeholder="请输入电影的简介...",rows="7") #{movie.summary}
+            .form-group
+               button.col-sm-offset-2.btn.btn-success 提交
+
+

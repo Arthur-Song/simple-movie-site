@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            each item in movies
+                .col-md-3.col-sm-4.col-xs-6
+                    .thumbnail
+                        a(href="/movie/#{item._id}",target="_blank")
+                            img(src="#{item.poster}",alt="#{item.title}").img-responsive
+                        .caption
+                            h4= item.title
+                            p: a(href="/movie/#{item._id}",target="_blank").btn.btn-primary 详情
+

@@ -1,0 +1,58 @@
+//- Created by Arthur on 2016/7/3.
+
+extends ../layout
+block content
+   .container
+      .row
+         .col-md-7
+            embed(src='#{movie.flash}',allowFullScreen="true",quality="hight"
+             ,width="720",height="450",align="middle",type="application/x-shockwave-flash")
+            .panel.panel-default
+               .panel-heading
+                  h3.panel-title 评论
+               .panel-body
+                  ul.media-list
+                     each comm in comments
+                        li.media
+                           .media-left
+                              a(href="#")
+                                 img(src="/img/u0.jpg",width="54",height="54").media-object.img-circle
+                           .media-body
+                              .media-heading #{comm.from.username}
+                              p= comm.content
+                              p: button.btn.btn-info.pull-right 回复
+            if user
+               form(method="post",action="/comment/save").form-horizontal
+                  input(type="hidden",name="movie",value="#{movie._id}")
+                  input(type="hidden",name="from",value="#{user._id}")
+                  .form-group
+                     label(for="comment").col-sm-2.control-label 内容
+                     .col-sm-10
+                        textarea(rows="7",name="content").form-control
+                  .form-group
+                     .col-sm-offset-2
+                        button(type="submit").btn.btn-primary 评论
+            else
+               p
+                  |登录后可以参与评论，
+                  a(href="/login") 立即登录
+                  |，还没有帐号？
+                  a(href="/register") 立即注册
+         .col-md-5
+            dl.dl-horizontal
+               dt 电影名称
+               dd= movie.title
+               dt 导演
+               dd= movie.director
+               dt 主演
+               dd= movie.actors.join(",")
+               dt 国家
+               dd= movie.country
+               dt 类型
+               dd= movie.tags.join(",")
+               dt 上映日期
+               dd #{moment(movie.publishDate).format("YYYY年MM月DD日")}
+               dt 简介
+               dd= movie.summary
+
+
